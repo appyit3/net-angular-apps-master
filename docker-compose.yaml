@@ -1,0 +1,44 @@
+version: "3"
+services: 
+    nginxsvc:
+        image: nginximg
+        build: 
+            context: ./Nginx
+            dockerfile: Dockerfile
+        ports: 
+            - 8001:80
+        restart: always
+        networks:
+            - demo-network
+    clientsvc:
+        image: clientimg
+        build:
+            context: ./Client
+            dockerfile: Dockerfile
+        ports: 
+            - 5001:80
+        networks:
+            - demo-network
+    dncapisvc:
+        image: dncimg
+        build: 
+            context: ./API
+            dockerfile: Dockerfile
+        ports: 
+            - 9001:80
+        networks:
+            - demo-network
+    remapisvc:
+        image: remimg
+        build: 
+            context: ./REMAPI
+            dockerfile: Dockerfile
+        ports: 
+            - 7001:80
+        networks:
+            - demo-network
+
+networks:
+  demo-network:
+    driver: bridge
+    
