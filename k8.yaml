@@ -51,11 +51,6 @@ spec:
               name: dncapisvc
               port:
                 number: 80
----     
-
-
-
-
 
 apiVersion: apps/v1
 kind: Deployment
@@ -94,7 +89,7 @@ spec:
     selector:
         app: remapi-pod
     type: ClusterIP
----     
+ 
 
 
 apiVersion: apps/v1
