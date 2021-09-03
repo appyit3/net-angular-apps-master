@@ -19,6 +19,15 @@ services:
             - 5001:80
         networks:
             - demo-network
+    webappsvc:
+        image: webappimg
+        build:
+            context: ./Webapp
+            dockerfile: Dockerfile
+        ports: 
+            - 6001:80
+        networks:
+            - demo-network
     dncapisvc:
         image: dncimg
         build: 
